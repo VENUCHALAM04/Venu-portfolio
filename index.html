@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VENU T - Portfolio & Resume</title>
+  
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .project-card.active {
+      background-color: #0f172a !important;
+      border-color: #020617 !important;
+      color: #ffffff !important;
+      transform: scale(1.01);
+    }
+    .project-card.active p {
+      color: #cbd5e1 !important;
+    }
+    .project-card.active span {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+    }
+    .project-card.active div.flex {
+      color: #10b981 !important;
+    }
+
+    /* Print styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+        color: black !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .resume-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 10mm 12mm !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: white !important;
+        box-sizing: border-box !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+
+  <!-- sticky header -->
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-xs no-print">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToSection('hero-section')">
+        <div class="w-10 h-10 rounded-xl bg-slate-900 flex items-center justify-center text-white font-display font-bold text-lg shadow-sm">
+          VT
+        </div>
+        <div>
+          <h1 class="font-display font-bold text-lg tracking-tight text-slate-900">VENU T</h1>
+          <p class="text-xs font-medium text-slate-500 font-mono">IoT & Computer Science Engineer</p>
+        </div>
+      </div>
+      <div class="flex items-center flex-wrap gap-3 sm:gap-4">
+        <nav class="bg-slate-100 p-1 rounded-xl flex items-center gap-1">
+          <button onclick="scrollToSection('hero-section')" class="px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            About
+          </button>
+          <button onclick="scrollToSection('projects-section')" class="px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            Projects
+          </button>
+          <button onclick="scrollToSection('skills-section')" class="px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            Skills
+          </button>
+          <button onclick="scrollToSection('resume-sheet-container')" class="px-3 py-2 rounded-lg text-xs sm:text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+            Resume Sheet
+          </button>
+        </nav>
+        <button onclick="window.print()" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium shadow-sm hover:shadow-md transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span>PDF Resume</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main section list -->
+  <main class="no-print">
+    
+    <!-- Hero welcome card -->
+    <section id="hero-section" class="relative overflow-hidden py-12 sm:py-20 bg-gradient-to-b from-slate-100 to-white">
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#f1f5f9_1px,transparent_1px),linear-gradient(to_bottom,#f1f5f9_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-70 pointer-events-none"></div>
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative text-center">
+        <div class="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-3 py-1 rounded-full text-xs font-semibold font-mono tracking-wide mb-6">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 block"></span>
+          <span>Open for Opportunities</span>
+        </div>
+        <h1 class="font-display font-bold text-4xl sm:text-6xl tracking-tight text-slate-900 mb-6 max-w-2xl mx-auto leading-tight">
+          Hi, I'm <span class="text-slate-800 underline decoration-slate-300 decoration-wavy underline-offset-8">VENU T</span>
+        </h1>
+        <p class="font-display font-medium text-lg sm:text-2xl text-slate-600 mb-4 tracking-tight">IoT & Computer Science Engineer</p>
+        <p class="text-sm sm:text-base text-slate-500 max-w-xl mx-auto leading-relaxed mb-8">I have completed my Bachelor's in Computer Science Engineering with a specialization in IoT, Cyber Security & Blockchain Technology. During my academic journey, I gained hands-on experience through internships and projects focused on IoT, Embedded Systems, Controller based development, automation, sensor integration, and software development.I am passionate about designing smart connected systems, developing embedded applications, and solving real-world problems using modern technologies. I’m eager to begin my professional career where I can contribute, continuously learn, and grow alongside an innovative team.</p>
+
+        <!-- contacts info board -->
+        <div class="flex flex-wrap justify-center items-center gap-y-3 gap-x-6 text-sm text-slate-600 font-mono mb-8 max-w-xl mx-auto bg-white p-3 rounded-2xl border border-slate-150 shadow-sm">
+          <a href="mailto:venuchalam410@gmail.com" class="flex items-center gap-1.5 hover:text-slate-950 transition-colors">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span>venuchalam410@gmail.com</span>
+          </a>
+          <span class="text-slate-300 hidden sm:inline">|</span>
+          <a href="tel:+91-8317328741" class="flex items-center gap-1.5 hover:text-slate-950 transition-colors">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span>+91-8317328741</span>
+          </a>
+          <span class="text-slate-300 hidden sm:inline">|</span>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button onclick="scrollToSection('projects-section')" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-850 text-white px-6 py-3 rounded-xl font-medium shadow-sm hover:shadow-lg transition-all duration-200">
+            <span>Explore Projects</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
+          <button onclick="scrollToSection('resume-sheet-container')" class="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-6 py-3 rounded-xl font-medium transition-colors">
+            <span>View Resume</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical project specifications -->
+    <section id="projects-section" class="py-12 sm:py-16 bg-slate-100 border-y border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-xl mx-auto mb-10">
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-2">Technical Project Documentation</h2>
+          <p class="text-sm text-slate-500 leading-relaxed">Detailed specifications, data pipelines, schematic flows, and structural analysis of core engineering projects.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          
+    <div class="project-card bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm transition-all duration-300 cursor-pointer active" onclick="selectProject('smart_blackbox')" data-id="smart_blackbox">
+      <div class="flex justify-between items-start mb-4">
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+          IoT
+        </span>
+      </div>
+      <h3 class="font-display font-bold text-lg mb-2 text-slate-900">Smart Black Box for Accident Analysis</h3>
+      <p class="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-4">An IoT-based vehicle black box that uses ESP32 to detect accidents, analyze crash severity, and send instant coordinate coordinates and distress SMS alerts.</p>
+      <div class="flex items-center gap-1 text-xs font-mono font-semibold text-slate-900 group">
+        <span>View Specifications</span>
+        <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+      </div>
+    </div>
+  
+    <div class="project-card bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm transition-all duration-300 cursor-pointer " onclick="selectProject('resonance_feedback')" data-id="resonance_feedback">
+      <div class="flex justify-between items-start mb-4">
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+          Embedded
+        </span>
+      </div>
+      <h3 class="font-display font-bold text-lg mb-2 text-slate-900">Resonance Assistive Feedback Device</h3>
+      <p class="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-4">A multi-sensory assistive system developed to assist blind, deaf, and speech-impaired individuals using coordinated audio and vibration feedback loops.</p>
+      <div class="flex items-center gap-1 text-xs font-mono font-semibold text-slate-900 group">
+        <span>View Specifications</span>
+        <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+      </div>
+    </div>
+  
+    <div class="project-card bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-300 shadow-sm transition-all duration-300 cursor-pointer " onclick="selectProject('courier_management')" data-id="courier_management">
+      <div class="flex justify-between items-start mb-4">
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-600">
+          Web
+        </span>
+      </div>
+      <h3 class="font-display font-bold text-lg mb-2 text-slate-900">Courier Management System</h3>
+      <p class="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-4">A full-stack booking and package tracking platform constructed with PHP, MySQL, and XAMPP to streamline shipping logistics.</p>
+      <div class="flex items-center gap-1 text-xs font-mono font-semibold text-slate-900 group">
+        <span>View Specifications</span>
+        <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path></svg>
+      </div>
+    </div>
+  
+        </div>
+
+        <!-- Details pane layout -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+          <div class="lg:col-span-7 p-6 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-slate-100">
+            
+    <div id="details-smart_blackbox" class="project-details-pane ">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span>Project Specification Sheet</span>
+      </div>
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-4 leading-tight">Smart Black Box for Accident Analysis</h3>
+      
+      <div class="text-sm text-slate-600 leading-relaxed mb-8">
+        <p class="text-base font-semibold text-slate-800 mb-2">System Design Objective:</p>
+        <p>This safety system continuously monitors vehicular parameters like tilt angle and extreme impact G-forces. On detecting an accident, the ESP32 commands a camera module to capture a snapshot, logs evidence to Firebase, and dispatches a critical SMS notification containing GPS navigation coordinates.</p>
+      </div>
+
+      <!-- Features -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span>Engineered Core Features</span>
+        </h4>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Automatic accident impact detection via IMU / Accelerometer thresholding</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Instant SMS alert routing through an API/cellular gateway with exact GPS coordinates</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Real-time cloud database storage (Firebase) for post-crash collision analysis</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Web-based administration dashboard tracking vehicle telemetry speeds and orientation</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Challenges -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span>Critical Challenges &amp; Mitigations</span>
+        </h4>
+        <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Synchronizing high-speed sensor readings to prevent false positive crash detections.</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Achieving low latency in uploading camera snapshots over cellular networks during emergency intervals.</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Applied Tools -->
+      <div>
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <span>Applied Engineering Tools &amp; Languages</span>
+        </h4>
+        <div class="flex flex-wrap gap-1.5">
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              ESP32
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Sensor Fusion
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              GPS Integration
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              SMS Gateway
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Firebase Cloud
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Real-time Data Logging
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Dashboard Development
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Accident Analysis
+            </span>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div id="details-resonance_feedback" class="project-details-pane hidden">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span>Project Specification Sheet</span>
+      </div>
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-4 leading-tight">Resonance Assistive Feedback Device</h3>
+      
+      <div class="text-sm text-slate-600 leading-relaxed mb-8">
+        <p class="text-base font-semibold text-slate-800 mb-2">System Design Objective:</p>
+        <p>Designed as a wearable tech device, it converts environmental cues and obstacles into structured high-frequency auditory soundscapes and variable haptic vibrating pulses. This feedback enables users to safely navigate their surroundings and feel responsive signals.</p>
+      </div>
+
+      <!-- Features -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span>Engineered Core Features</span>
+        </h4>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Ultrasonic distance ranging mapped dynamically to haptic motor speeds</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Distinct auditory tone profiles for various threat vectors and ranges</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Comfortable wearable casing optimized for hand or chest mounting</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Ultra-low power sleep states maximizing operational device cycles</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Challenges -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span>Critical Challenges &amp; Mitigations</span>
+        </h4>
+        <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Calibrating multiple sensors in close proximity to prevent spatial signal echo overlaps.</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Designing an intuitive feedback language that users can understand without cognitive fatigue.</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Applied Tools -->
+      <div>
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <span>Applied Engineering Tools &amp; Languages</span>
+        </h4>
+        <div class="flex flex-wrap gap-1.5">
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Embedded Systems
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Sensors
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Assistive Tech
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Haptic Feedback
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Arduino Programming
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Acoustic Signal Processing
+            </span>
+          
+        </div>
+      </div>
+    </div>
+  
+    <div id="details-courier_management" class="project-details-pane hidden">
+      <div class="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        <span>Project Specification Sheet</span>
+      </div>
+      <h3 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-4 leading-tight">Courier Management System</h3>
+      
+      <div class="text-sm text-slate-600 leading-relaxed mb-8">
+        <p class="text-base font-semibold text-slate-800 mb-2">System Design Objective:</p>
+        <p>Developed to replace manual ledger tracking, this client-server system manages package inventories, bookings, customer profiles, and staff status assignments. It provides users with a clean shipment tracking ledger while granting admins a secure database command center.</p>
+      </div>
+
+      <!-- Features -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+          <span>Engineered Core Features</span>
+        </h4>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Role-based secure authentication portals (Customer, Admin, Courier Staff)</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Dynamic dispatch booking invoice generation and billing math</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Interactive package status history (Booked -> In Transit -> Hub -> Out for Delivery -> Delivered)</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100/50 leading-relaxed">
+              <svg class="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+              <span>Comprehensive SQL reporting queries showing transit metrics and load averages</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Challenges -->
+      <div class="mb-8">
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2 border-b border-slate-50 pb-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+          <span>Critical Challenges &amp; Mitigations</span>
+        </h4>
+        <ul class="space-y-3 text-xs text-slate-600 leading-relaxed">
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Structuring relational database tables with proper foreign keys to avoid redundant records during tracking updates.</span>
+            </li>
+          
+            <li class="flex items-start gap-2.5 bg-amber-50/40 border border-amber-100 p-3 rounded-xl">
+              <svg class="w-4 h-4 text-amber-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <span>Safeguarding user inputs against SQL injection and common session hijacking vulnerabilities.</span>
+            </li>
+          
+        </ul>
+      </div>
+
+      <!-- Applied Tools -->
+      <div>
+        <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+          <span>Applied Engineering Tools &amp; Languages</span>
+        </h4>
+        <div class="flex flex-wrap gap-1.5">
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              PHP
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              MySQL
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              XAMPP
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Web Development
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              System Authentication
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Package Tracking
+            </span>
+          
+            <span class="bg-slate-100 border border-slate-200 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:bg-slate-200 transition-colors">
+              Relational Database Design
+            </span>
+          
+        </div>
+      </div>
+    </div>
+  
+          </div>
+          <div class="lg:col-span-5 bg-slate-950 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative text-slate-300">
+            <div class="absolute inset-0 bg-[radial-gradient(#ffffff04_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-40 pointer-events-none"></div>
+            <div class="relative z-10 flex flex-col justify-between h-full">
+              <div>
+                <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 bg-white/5 px-2.5 py-1 rounded-md border border-white/5 inline-block mb-4">
+                  Hardware/Software Architecture
+                </span>
+                <p class="text-xs text-slate-400 mb-6">
+                  The step-by-step schematic routing process designed to establish robust communication pipelines across hardware systems and relational backend interfaces.
+                </p>
+
+                <!-- Project diagrams container -->
+                <div id="diagram-smart_blackbox" class="project-diagram-pane">
+                  <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-xs text-slate-300">
+                    <h4 class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                      <span>System Architecture &amp; Data Pipeline</span>
+                    </h4>
+                    <div class="space-y-4">
+                      <div><span class="text-white font-bold block">1. Telemetry Fusion</span><p class="text-slate-400 text-[11px] mt-0.5">ESP32 polls Accelerometer &amp; GPS at 50Hz.</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">2. Collision Matrix</span><p class="text-slate-400 text-[11px] mt-0.5">Checks tilt > 45 deg or impact G-force > 4.5G.</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">3. Parallel Dispatch</span><p class="text-slate-400 text-[11px] mt-0.5">Pushes logs to Firebase &amp; commands emergency SMS via SIM800L.</p></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="diagram-resonance_feedback" class="project-diagram-pane hidden">
+                  <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-xs text-slate-300">
+                    <h4 class="text-[10px] text-indigo-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                      <span>Sensory Mapping &amp; Feedback Pipeline</span>
+                    </h4>
+                    <div class="space-y-4">
+                      <div><span class="text-white font-bold block">1. Telemetry Echo</span><p class="text-slate-400 text-[11px] mt-0.5">Ultrasonic sensors calculate spatial obstacle limits.</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">2. Frequency Mapping</span><p class="text-slate-400 text-[11px] mt-0.5">Calibrates range dynamically into haptic pulse rates (8Hz to 120Hz).</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">3. Acoustic Alert</span><p class="text-slate-400 text-[11px] mt-0.5">Sends supplementary headphone buzz frequencies to users.</p></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="diagram-courier_management" class="project-diagram-pane hidden">
+                  <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 font-mono text-xs text-slate-300">
+                    <h4 class="text-[10px] text-amber-400 font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                      <span>Full-Stack Relational Data Flow</span>
+                    </h4>
+                    <div class="space-y-4">
+                      <div><span class="text-white font-bold block">1. Booking Client Portal</span><p class="text-slate-400 text-[11px] mt-0.5">Generates invoice and inputs tracking indexes.</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">2. Sanitized PHP Routing</span><p class="text-slate-400 text-[11px] mt-0.5">Filters requests to secure MySQL tables against SQL injection.</p></div>
+                      <div class="w-0.5 h-3 bg-slate-800 ml-3"></div>
+                      <div><span class="text-white font-bold block">3. Real-time Status Tracker</span><p class="text-slate-400 text-[11px] mt-0.5">Logs shipment path updates instantly in a central grid.</p></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-8 border-t border-white/10 pt-4 text-[10px] font-mono text-slate-500">
+                Diagram designed by Venu T.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills section -->
+    <section id="skills-section" class="py-12 sm:py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-xl mx-auto mb-12">
+          <h2 class="font-display font-bold text-2xl sm:text-3xl text-slate-900 mb-2">Skills &amp; Certifications</h2>
+          <p class="text-sm text-slate-500 leading-relaxed">Core engineering competencies, platforms, and third-party certifications.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+          
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors shadow-xs">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-white rounded-xl shadow-xs border border-slate-100 text-indigo-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          </div>
+          <h3 class="font-display font-semibold text-base text-slate-800 tracking-tight">Programming Languages</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              C
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Python
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              SQL
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              PHP
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              TypeScript
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              JavaScript
+            </span>
+          
+        </div>
+      </div>
+    
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors shadow-xs">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-white rounded-xl shadow-xs border border-slate-100 text-emerald-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          </div>
+          <h3 class="font-display font-semibold text-base text-slate-800 tracking-tight">IoT & Core Technologies</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Microcontrollers (ESP32, Arduino)
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Sensor Fusion
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Actuator Control
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Firebase Cloud
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              REST APIs
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              GPS Integration
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              SMS Gateways
+            </span>
+          
+        </div>
+      </div>
+    
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors shadow-xs">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-white rounded-xl shadow-xs border border-slate-100 text-amber-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          </div>
+          <h3 class="font-display font-semibold text-base text-slate-800 tracking-tight">Tools & Platforms</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              VS Code
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Git & GitHub
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Arduino IDE
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Android Studio
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              XAMPP
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Vite & Tailwind CSS
+            </span>
+          
+        </div>
+      </div>
+    
+      <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-colors shadow-xs">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="p-2 bg-white rounded-xl shadow-xs border border-slate-100 text-purple-500">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          </div>
+          <h3 class="font-display font-semibold text-base text-slate-800 tracking-tight">Other Competencies</h3>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Debugging
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Technical Documentation
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Cyber Security Basics
+            </span>
+          
+            <span class="bg-white border border-slate-100 text-slate-700 font-mono text-xs px-3 py-1.5 rounded-lg hover:border-slate-300 transition-colors shadow-xs">
+              Blockchain Concepts
+            </span>
+          
+        </div>
+      </div>
+    
+        </div>
+        <div>
+          <h3 class="font-display font-bold text-lg text-slate-900 mb-6 flex items-center gap-2 border-b border-slate-100 pb-3">Honorable Certifications</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            
+    <div class="bg-white p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow flex items-start gap-3 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0h-4m0 0v13m0 0h8"></path></svg>
+      </div>
+      <div>
+        <h4 class="font-sans font-semibold text-sm text-slate-800 leading-snug">IOT-A Hands on Session</h4>
+        <p class="text-xs font-medium text-slate-400 mt-1">Indian Tech-Keys</p>
+      </div>
+    </div>
+  
+    <div class="bg-white p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow flex items-start gap-3 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0h-4m0 0v13m0 0h8"></path></svg>
+      </div>
+      <div>
+        <h4 class="font-sans font-semibold text-sm text-slate-800 leading-snug">Data Science using Python</h4>
+        <p class="text-xs font-medium text-slate-400 mt-1">Ethnotech Academic Solutions</p>
+      </div>
+    </div>
+  
+    <div class="bg-white p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow flex items-start gap-3 shadow-xs">
+      <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 mt-0.5">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 0h4m-4 0h-4m0 0v13m0 0h8"></path></svg>
+      </div>
+      <div>
+        <h4 class="font-sans font-semibold text-sm text-slate-800 leading-snug">Cyber Security</h4>
+        <p class="text-xs font-medium text-slate-400 mt-1">Ethnotech Academic Solutions</p>
+      </div>
+    </div>
+  
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Printable A4 paper Resume container -->
+  <section id="resume-sheet-container" class="py-10 bg-slate-100 min-h-screen">
+    
+    <!-- Info banner -->
+    <div class="max-w-[210mm] mx-auto mb-6 bg-white border border-slate-200 p-5 rounded-2xl shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4 no-print">
+      <div class="flex items-start gap-3">
+        <div class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div>
+          <h4 class="font-display font-semibold text-sm text-slate-800">Print or Save as PDF</h4>
+          <p class="text-xs text-slate-500 max-w-md mt-0.5 leading-relaxed">
+            Structured for standard <b>A4 paper size</b>. To download your clean PDF, click the button or press <b>Ctrl + P</b> (or <b>Cmd + P</b> on Mac) and select <b>"Save as PDF"</b>.
+          </p>
+        </div>
+      </div>
+      <button onclick="window.print()" class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs px-5 py-3 rounded-xl shadow-sm transition-colors cursor-pointer shrink-0">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+        <span>Print / Save as PDF</span>
+      </button>
+    </div>
+
+    <!-- Printable sheet (A4 paper style) -->
+    <div id="resume-a4-sheet" class="resume-page mx-auto bg-white p-12 sm:p-14 shadow-lg border border-slate-200 rounded-sm font-sans text-slate-800 relative select-text" style="max-width: 210mm; min-height: 297mm;">
+      
+      <!-- Name header -->
+      <div class="border-b-2 border-slate-800 pb-5 mb-6">
+        <h1 class="font-display font-extrabold text-5xl tracking-tight text-slate-900">VENU T</h1>
+        <div class="h-1 w-20 bg-slate-800 mt-2"></div>
+      </div>
+
+      <!-- profile block -->
+      <div class="mb-6">
+        <h2 class="font-display font-bold text-lg uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-2.5">Profile</h2>
+        <p class="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans text-justify">I have completed my Bachelor's in Computer Science Engineering with a specialization in IoT, Cyber Security & Blockchain Technology. During my academic journey, I gained hands-on experience through internships and projects focused on IoT, Embedded Systems, Controller based development, automation, sensor integration, and software development.I am passionate about designing smart connected systems, developing embedded applications, and solving real-world problems using modern technologies. I’m eager to begin my professional career where I can contribute, continuously learn, and grow alongside an innovative team.</p>
+      </div>
+
+      <!-- split A4 columns -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8">
+        
+        <!-- left column -->
+        <div class="md:col-span-8 flex flex-col gap-6">
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Internship</h2>
+            <div>
+              <div class="flex justify-between items-baseline flex-wrap gap-1">
+                <h3 class="font-sans font-bold text-[13px] text-slate-900">Android Development Intern (Generative AI)</h3>
+                <span class="font-mono text-[11px] text-slate-500 font-semibold">Dec 2025 - May 2026</span>
+              </div>
+              <p class="text-[12px] font-semibold text-indigo-700 mt-0.5">MindMatrix</p>
+              <p class="text-[12px] text-slate-600 leading-relaxed mt-1.5 font-sans">Currently undergoing an internship focused on Android app development using Generative AI. Working on building intelligent mobile features, integrating AI APIs, and enhancing user experience through smart automation and real-time data processing.</p>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Academic Projects</h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-sans font-bold text-[13px] text-slate-900">Mini Project: Resonance Assistive Feedback</h3>
+                <p class="text-[12px] text-slate-600 leading-relaxed mt-1.5">Developed a device using audio and vibration feedback to assist blind, deaf, and speech impaired individuals.</p>
+                <p class="text-[11px] font-mono font-bold text-slate-700 mt-1">Skills: Embedded systems, sensors, assistive tech, feedback design</p>
+              </div>
+              <div>
+                <h3 class="font-sans font-bold text-[13px] text-slate-900">Major Project: Smart Black Box for accident analysis on roadways</h3>
+                <p class="text-[12px] text-slate-600 leading-relaxed mt-1.5 text-justify">Developing an IoT-based vehicle black box using ESP32 to detect accidents, analyze severity, and send instant alerts via SMS gateway. The system integrates GPS, multiple sensors, camera capture, Firebase cloud storage, and a dashboard for secure real-time evidence logging.</p>
+                <p class="text-[11px] font-mono font-bold text-slate-700 mt-1">Skills: IoT systems, ESP32 programming, sensor fusion, SMS gateway integration, GPS integration, real-time data logging, cloud communication (Firebase), dashboard development, accident analysis.</p>
+              </div>
+              <div>
+                <h3 class="font-sans font-bold text-[13px] text-slate-900">Sql Project: Courier Management System</h3>
+                <p class="text-[12px] text-slate-600 leading-relaxed mt-1.5">Built a web-based courier booking and tracking platform using PHP, MySQL, and XAMPP. Implemented modules for customer booking, realtime tracking, and admin/staff status management with secure authentication and database integration.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- right column -->
+        <div class="md:col-span-4 flex flex-col gap-6">
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Contact</h2>
+            <div class="space-y-2.5 font-mono text-[11px] text-slate-600">
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <span>+91-8317328741</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span class="break-all">venuchalam410@gmail.com</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                <span>Bengaluru, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Education</h2>
+            <div>
+              <h3 class="font-sans font-bold text-[12px] text-slate-900 leading-snug">East West Institute of Technology</h3>
+              <p class="text-[11px] text-slate-600 font-medium mt-1 leading-relaxed">Bachelor of Engineering (B.E.) in CSE (IOT, CYBER SECURITY including BLOCKCHAIN TECHNOLOGY)</p>
+              <div class="flex justify-between items-center text-[10px] font-mono text-slate-500 mt-2 font-bold">
+                <span>Dec 2022 - May 2026</span>
+                <span class="text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded">CGPA: 8.5 / 10</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Skills</h2>
+            <div class="space-y-3 font-sans text-[11px] text-slate-600">
+              
+    <div>
+      <p class="font-bold text-slate-800 text-[11px] mb-1 leading-tight">• Programming Languages:</p>
+      <p class="leading-relaxed pl-3 font-mono text-[10px] text-slate-500">C, Python, SQL, PHP, TypeScript, JavaScript</p>
+    </div>
+  
+    <div>
+      <p class="font-bold text-slate-800 text-[11px] mb-1 leading-tight">• IoT & Core Technologies:</p>
+      <p class="leading-relaxed pl-3 font-mono text-[10px] text-slate-500">Microcontrollers (ESP32, Arduino), Sensor Fusion, Actuator Control, Firebase Cloud, REST APIs, GPS Integration, SMS Gateways</p>
+    </div>
+  
+    <div>
+      <p class="font-bold text-slate-800 text-[11px] mb-1 leading-tight">• Tools & Platforms:</p>
+      <p class="leading-relaxed pl-3 font-mono text-[10px] text-slate-500">VS Code, Git & GitHub, Arduino IDE, Android Studio, XAMPP, Vite & Tailwind CSS</p>
+    </div>
+  
+    <div>
+      <p class="font-bold text-slate-800 text-[11px] mb-1 leading-tight">• Other Competencies:</p>
+      <p class="leading-relaxed pl-3 font-mono text-[10px] text-slate-500">Debugging, Technical Documentation, Cyber Security Basics, Blockchain Concepts</p>
+    </div>
+  
+            </div>
+          </div>
+
+          <div>
+            <h2 class="font-display font-bold text-[14px] uppercase tracking-wider text-slate-900 border-b border-slate-200 pb-1 mb-3">Certifications</h2>
+            <ul class="space-y-2 text-[11px] text-slate-600 pl-3 list-disc">
+              
+    <li class="leading-snug">
+      <span class="font-bold text-slate-800">IOT-A Hands on Session</span>
+      <span class="text-slate-500 font-mono text-[10px] block mt-0.5">(Indian Tech-Keys)</span>
+    </li>
+  
+    <li class="leading-snug">
+      <span class="font-bold text-slate-800">Data Science using Python</span>
+      <span class="text-slate-500 font-mono text-[10px] block mt-0.5">(Ethnotech Academic Solutions)</span>
+    </li>
+  
+    <li class="leading-snug">
+      <span class="font-bold text-slate-800">Cyber Security</span>
+      <span class="text-slate-500 font-mono text-[10px] block mt-0.5">(Ethnotech Academic Solutions)</span>
+    </li>
+  
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer block -->
+  <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-950 no-print">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-display font-bold text-white text-base">VENU T</p>
+        <p class="text-xs text-slate-500 font-mono mt-0.5">IoT & Computer Science Engineer</p>
+        <p class="text-xs text-slate-500 mt-3">&copy; <span id="current-year"></span> VENU T. All rights reserved.</p>
+      </div>
+      <div class="flex flex-col items-center sm:items-start gap-2.5 font-mono text-xs">
+        <a href="mailto:venuchalam410@gmail.com" class="flex items-center gap-2 hover:text-white transition-colors">
+          <span>venuchalam410@gmail.com</span>
+        </a>
+        <a href="tel:+91-8317328741" class="flex items-center gap-2 hover:text-white transition-colors">
+          <span>+91-8317328741</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById('current-year').innerText = new Date().getFullYear();
+
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function selectProject(id) {
+      // Manage active classes on cards
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (card.getAttribute('data-id') === id) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      // Show specific details sheet
+      document.querySelectorAll('.project-details-pane').forEach(pane => {
+        if (pane.id === 'details-' + id) {
+          pane.classList.remove('hidden');
+        } else {
+          pane.classList.add('hidden');
+        }
+      });
+
+      // Show specific diagram pane
+      document.querySelectorAll('.project-diagram-pane').forEach(diagram => {
+        if (diagram.id === 'diagram-' + id) {
+          diagram.classList.remove('hidden');
+        } else {
+          diagram.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
